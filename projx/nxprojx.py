@@ -71,10 +71,10 @@ def project(source, target, graph, method="jaccard", params=None, attrs=None,
         edge_attrs = graph[source][target]
         merged_attrs = merge_attrs(attrs, edge_attrs,
                                    [edge_type_attr, "weight", "label"])
-        graph.adj[source][target] = merged_attrs
-        graph.adj[target][source] = merged_attrs
+        graph[source][target].update(merged_attrs)
+        graph[target][source].update(merged_attrs)
     else:
-        graph.add_edge(source, target, attrs)
+        graph.add_edge(source, target, **attrs)
     return graph
 
 
@@ -103,7 +103,8 @@ def transfer(source, target, graph, method="edges", params=None, attrs=None,
     old_attrs = graph.node[target]
     merged_attrs = merge_attrs(attrs, old_attrs,
                                [node_type_attr, "label", "role"])
-    graph.node[target] = merged_attrs
+    graph.nodes[target].clear()
+    graph.nodes[target].update(merged_attrs)
     return graph
 
 
@@ -135,7 +136,7 @@ def combine(source, target, graph, node_id="", attrs=None,
             graph.node[target][node_type_attr]
         )
         attrs[node_type_attr] = node_type
-    graph.add_node(node_id, attrs)
+    graph.add_node(node_id, **attrs)
     nbrs = dict(graph[source])
     nbrs.update(dict(graph[target]))
     nbrs = {k: v for (k, v) in nbrs.items()
@@ -236,9 +237,9 @@ def build_subgraph(paths, graph, records=False):
         combined_paths = _combine_paths(path)
         for edges in combined_paths:
             attrs = graph[edges[0]][edges[1]]
-            g.add_edge(edges[0], edges[1], attrs)
-    for node in g.nodes():
-        g.node[node] = dict(graph.node[node])
+            g.add_edge(edges[0], edges[1], **attrs)
+    for node in g.nodes:
+        g.nodes[node].update(graph.node[node])
     return g
 
 
@@ -380,10 +381,10 @@ def _add_edges_from(graph, edges, edge_type_attr="type"):
             edge_attrs = graph[source][target]
             merged_attrs = merge_attrs(attrs, edge_attrs,
                                         [edge_type_attr, "weight", "label"])
-            graph.adj[source][target] = merged_attrs
-            graph.adj[target][source] = merged_attrs
+            graph[source][target].update(merged_attrs)
+            graph[target][source].update(merged_attrs)
         else:
-            graph.add_edge(source, target, attrs)
+            graph.add_edge(source, target, **attrs)
     return graph
 
 

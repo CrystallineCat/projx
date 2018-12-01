@@ -1,0 +1,76 @@
+!!python/object:networkx.classes.graph.Graph
+_adj:
+  1:
+    2: &id001 {type: works_at}
+    3: &id002 {type: lives_in}
+  2:
+    1: *id001
+    3: &id003 {type: located_in}
+    7: &id007 {type: works_at}
+  3:
+    1: *id002
+    2: *id003
+    4: &id004 {type: connected_to}
+    7: &id008 {type: lives_in}
+    11: &id015 {type: lives_in}
+  4:
+    3: *id004
+    5: &id005 {type: connected_to}
+    7: &id009 {type: works_at}
+    8: &id010 {type: lives_in}
+    9: &id012 {type: lives_in}
+    10: &id013 {type: connected_to}
+  5:
+    4: *id005
+    6: &id006 {type: lives_in}
+    8: &id011 {type: works_at}
+    12: &id016 {type: lives_in}
+    13: &id017 {type: located_in}
+  6:
+    5: *id006
+  7:
+    2: *id007
+    3: *id008
+    4: *id009
+  8:
+    4: *id010
+    5: *id011
+  9:
+    4: *id012
+    10: &id014 {type: works_at}
+  10:
+    4: *id013
+    9: *id014
+  11:
+    3: *id015
+  12:
+    5: *id016
+    13: &id018 {type: works_at}
+  13:
+    5: *id017
+    12: *id018
+    14: &id019 {type: works_at}
+  14:
+    13: *id019
+_node: &id021
+  1: {label: davebshow, type: Person}
+  2: {label: western, type: Institution}
+  3: {label: london, type: City}
+  4: {label: the matrix, type: Institution}
+  5: {label: toronto, type: City}
+  6: {label: gandalf, type: Person}
+  7: {label: versae, type: Person}
+  8: {label: neo, type: Person}
+  9: {label: r2d2, type: Person}
+  10: {label: alderon, type: City}
+  11: {label: curly, type: Person}
+  12: {label: adam, type: Person}
+  13: {label: canland, type: Institution}
+  14: {label: bro, type: Person}
+adjlist_inner_dict_factory: &id020 !!python/name:builtins.dict ''
+adjlist_outer_dict_factory: *id020
+edge_attr_dict_factory: *id020
+graph: {}
+node_dict_factory: *id020
+nodes: !!python/object:networkx.classes.reportviews.NodeView
+  _nodes: *id021

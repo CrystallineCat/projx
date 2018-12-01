@@ -5,50 +5,6 @@ These are mainly for testing/demoing the library.
 import networkx as nx
 
 
-def test_graph():
-    """
-    The first tests will use this function I assume.
-    :returns: networkx.Graph
-    """
-    g = nx.Graph([
-        (1, 2, {'type': 'works_at'}),
-        (1, 3, {'type': 'lives_in'}),
-        (2, 3, {'type': 'located_in'}),
-        (3, 4, {'type': 'connected_to'}),
-        (4, 5, {'type': 'connected_to'}),
-        (10, 4, {'type': 'connected_to'}),
-        (5, 6, {'type': 'lives_in'}),
-        (7, 3, {'type': 'lives_in'}),
-        (8, 5, {'type': 'works_at'}),
-        (7, 2, {'type': 'works_at'}),
-        (8, 4, {'type': 'lives_in'}),
-        (7, 4, {'type': 'works_at'}),
-        (9, 4, {'type': 'lives_in'}),
-        (9, 10, {'type': 'works_at'}),
-        (11, 3, {'type': 'lives_in'}),
-        (12, 5, {'type': 'lives_in'}),
-        (12, 13, {'type': 'works_at'}),
-        (13, 5, {'type': 'located_in'}),
-        (13, 14, {'type': 'works_at'})
-    ])
-    g.node[1] = {'type': 'Person', 'label': 'davebshow'}
-    g.node[2] = {'type': 'Institution', 'label': 'western'}
-    g.node[3] = {'type': 'City', 'label': 'london'}
-    g.node[4] = {'type': 'Institution', 'label': 'the matrix'}
-    g.node[5] = {'type': 'City', 'label': 'toronto'}
-    g.node[6] = {'type': 'Person', 'label': 'gandalf'}
-    g.node[7] = {'type': 'Person', 'label': 'versae'}
-    g.node[8] = {'type': 'Person', 'label': 'neo'}
-    g.node[9] = {'type': 'Person', 'label': 'r2d2'}
-    g.node[10] = {'type': 'City', 'label': 'alderon'}
-    g.node[11] = {'type': 'Person', 'label': 'curly'}
-    g.node[12] = {'type': 'Person', 'label': 'adam'}
-    g.node[13] = {'type': 'Institution', 'label': 'canland'}
-    g.node[14] = {'type': 'Person', 'label': 'bro'}
-    return g
-
-
-
 project_etl = {
     "extractor": {
         "networkx": {

@@ -3,16 +3,17 @@ from distutils.core import setup
 
 setup(
     name="projx",
-    version="0.3.6",
+    version="0.3.6-mn",
     url="http://projx.readthedocs.org/en/latest/#",
     license="MIT",
-    author="davebshow",
-    author_email="davebshow@gmail.com",
+    author="mniederlechner",
+    author_email="mniederlechner@gmx.net",
     description="Graph transformations in Python",
-    long_description=open("README.txt").read(),
+    long_description=open("README.md").read(),
+    long_description_content_type="text/markdown",
     packages=["projx", "projx.modules"],
     install_requires=[
-        "networkx==1.9",
+        "networkx==2.2",
         "pyparsing==2.0.2"
     ]
 )

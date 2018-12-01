@@ -9,7 +9,7 @@ destination.
 import time
 import networkx as nx
 from projx import nxprojx
-from nx_xtrct import _nx_lookup_attrs
+from .nx_xtrct import _nx_lookup_attrs
 try:
     from py2neo import Graph
 except ImportError:
@@ -26,13 +26,14 @@ def nx2nx_loader(extractor, stream, transformers, loader_json, graph):
     graph = extractor_json["graph"]
     node_type_attr = extractor_json["node_type_attr"]
     edge_type_attr = extractor_json["edge_type_attr"]
+    transformers = list(transformers)
     if len(transformers) > 1:
         removals = set()
         projector = nxprojx.NXProjector(max(graph.nodes()))
         for trans in stream(transformers, extractor_json):
             record, trans_kwrd, trans, attrs = trans
             method = trans.get("method", {"none": []})
-            method_kwrd = method.keys()[0]
+            method_kwrd = list(method.keys())[0]
             params = method.get(method_kwrd, {"args": []})["args"]
             src, target, to_del = _apply_nx2nx_transformer(trans, record)
             fn = projector.transformations[trans_kwrd]
@@ -63,11 +64,11 @@ def nx2nx_single_transform_loader(transformer, paths, graph, node_type_attr,
     """
     removals = set()
     projector = nxprojx.NXProjector(max(graph.nodes()))
-    trans_kwrd = transformer.keys()[0]
+    trans_kwrd = list(transformer.keys())[0]
     trans = transformer[trans_kwrd]
     to_set = trans.get("set", [])
     method = trans.get("method", {"none": []})
-    method_kwrd = method.keys()[0]
+    method_kwrd = list(method.keys())[0]
     params = method.get(method_kwrd, {"args": []})["args"]
     fn = projector.transformations[trans_kwrd]
     for record in paths:

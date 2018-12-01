@@ -2,8 +2,8 @@
 """
 Main API functions.
 """
-from etl import ETL
-from grammar import parse_query
+from .etl import ETL
+from .grammar import parse_query
 
 
 def execute_etl(etl, graph=None):

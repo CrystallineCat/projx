@@ -1,22 +1,18 @@
-# projx - Graph transformations in Python.
+# projx - Graph transformations in Python
 
-**alpha**
+**pre-alpha**
 
 **projx** provides a simple and extensible API for interacting with graphs in Python. Its core functionality is built around making graph transformations using the [NetworkX](https://networkx.github.io/) module and a DSL based on [Neo4j's](http://neo4j.com/) [Cypher](http://neo4j.com/docs/stable/cypher-query-lang.html) query language. It also provides an extensible ETL pipeline that uses JSON configuration (roughly modeled after [orientdb-etl](https://github.com/orientechnologies/orientdb-etl/wiki)) to translate graph data between various persistent and in-memory representations.
 
-**[Official Documentation](http://davebshow.github.io/projx/)**
+**[Demo Notebook with NetworkX DSL](http://nbviewer.ipython.org/github/CrystallineCat/projx/blob/master/projx_neo4j_demo.ipynb)**
 
-**[projx on PyPI](https://pypi.python.org/pypi/projx)**
+Thanks to [@versae](https://github.com/versae) for inspiring this project and [@davebshow](https://github.com/davebshow) for the original implementation.
 
-**[Demo Notebook with NetworkX DSL](http://bit.ly/1EiMaMt)**
+## Post-fork changes
 
-**[Demo Notebook with Neo4j2NetworkX](http://nbviewer.ipython.org/github/davebshow/projx/blob/master/projx_neo4j_demo.ipynb)**
+* Ported everything needed for Demo Notebook to Python 3.6 and NetworkX 2.2
 
-**[Demo Notebook: Loading the Flickr group graph to Neo4j](http://nbviewer.ipython.org/github/davebshow/projx/blob/master/flicker_graph.ipynb)**
+## To port
 
-Thanks to [@versae](https://github.com/versae) for inspiring this project.
-
-**TODO:**
-
-* Start writing tests!!!
-* Support for tinkerpop.
+* [Demo Notebook with Neo4j2NetworkX](http://nbviewer.ipython.org/github/davebshow/projx/blob/master/projx_neo4j_demo.ipynb)
+* [Demo Notebook: Loading the Flickr group graph to Neo4j](http://nbviewer.ipython.org/github/davebshow/projx/blob/master/flicker_graph.ipynb)

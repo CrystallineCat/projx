@@ -52,7 +52,7 @@ def nx_stream(transformers, extractor_json):
     paths = extractor_json["paths"]
     for record in paths:
         for transformer in transformers:
-            trans_kwrd = transformer.keys()[0]
+            trans_kwrd = list(transformer.keys())[0]
             trans = transformer[trans_kwrd]
             to_set = trans.get("set", [])
             attrs = _nx_lookup_attrs(to_set, record, graph)
